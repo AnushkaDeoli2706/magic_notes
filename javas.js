@@ -49,7 +49,7 @@ function showNotes()
       html+=`
       <div class="noteCard card my-2 mx-2" style="width: 18rem; background-color: #FDEFEF">
           <div class="card-body">
-              <h5 class="card-title">${element.title}</h5>
+              <h5 class="card-title" id="title">${element.title}</h5>
               <p class="card-text">${element.text}</p>
               <button class="btn btn-primary" id="${index}" onclick="deleteNote(this.id)"
                   style="background-color:#F999B7;border-color: pink; margin-top:10px;">Delete Note</button>
@@ -92,7 +92,7 @@ search.addEventListener("input",function()
     let noteCard=document.getElementsByClassName("noteCard");
     Array.from(noteCard).forEach(function(element)
     {
-        let cardTxt=element.getElementsByTagName("P")[0].innerText.toLowerCase();
+        let cardTxt=element.getElementsByTagName("H5")[0].innerText.toLowerCase();
         if(cardTxt.includes(inputVal))
         {
           element.style.display="block";
